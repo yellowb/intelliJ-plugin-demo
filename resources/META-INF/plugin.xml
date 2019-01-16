@@ -32,6 +32,9 @@
     <action id="hello.action" class="HelloAction" text="hello_action">
       <add-to-group group-id="GenerateGroup" anchor="first"/>
     </action>
+    <action id="eee.setting" class="EEESetting" text="eee_Setting">
+      <add-to-group group-id="MainToolBarSettings" anchor="first"/>
+    </action>
   </actions>
 
 </idea-plugin>
