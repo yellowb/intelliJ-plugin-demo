@@ -32,8 +32,9 @@
     <action id="hello.action" class="HelloAction" text="hello_action">
       <add-to-group group-id="GenerateGroup" anchor="first"/>
     </action>
-    <action id="eee.setting" class="EEESetting" text="eee_Setting">
-      <add-to-group group-id="MainToolBarSettings" anchor="first"/>
+    <action id="EditorBasics.EditorIllustration" class="sample.EditorIllustration" text="Editor Basics"
+            description="Illustrates how to plug an action in">
+      <add-to-group group-id="EditorPopupMenu" anchor="last"/>
     </action>
   </actions>
 

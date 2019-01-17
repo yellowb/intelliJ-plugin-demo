@@ -21,7 +21,7 @@ public class HelloAction extends AnAction {
 
     @Override
     public void update(AnActionEvent e) {
-        System.out.println("update!");
+//        System.out.println("update!");
         super.update(e);
     }
 }
