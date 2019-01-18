@@ -27,7 +27,7 @@ public class EditorIllustration extends AnAction {
         WriteCommandAction.runWriteCommandAction(project, () -> {
             document.replaceString(start, end, "\n" + selectedString + "\n");
         });
-
+        selectionModel.removeSelection();
     }
 
     @Override
