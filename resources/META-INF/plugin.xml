@@ -36,6 +36,10 @@
             description="Illustrates how to plug an action in">
       <add-to-group group-id="EditorPopupMenu" anchor="last"/>
     </action>
+    <action id="EditorBasics.EditorAreaIllustration" class="sample.EditorAreaIllustration" text="Caret Basics"
+            description="Illustrates how to plug an action in">
+      <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+    </action>
   </actions>
 
 </idea-plugin>
