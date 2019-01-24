@@ -19,12 +19,18 @@
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->
-  <!-- uncomment to enable plugin in all products
+
   <depends>com.intellij.modules.lang</depends>
-  -->
+
+  <application-components>
+    <component>
+      <implementation-class>sample.entry.ToolEntry</implementation-class>
+    </component>
+  </application-components>
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
+    <applicationService serviceImplementation="sample.configuration.ToolConfiguration"></applicationService>
   </extensions>
 
   <actions>
