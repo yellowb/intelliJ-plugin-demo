@@ -37,6 +37,12 @@ public class ToolConfiguration implements PersistentStateComponent<ToolConfigura
         this.userName = userName;
     }
 
+    // Default constructor to make sure work with persistence framework
+    public ToolConfiguration() {
+        this.port = 0;
+        this.userName = "";
+    }
+
     @Nullable
     @Override
     public ToolConfiguration getState() {
