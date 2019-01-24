@@ -12,9 +12,13 @@ public class ToolEntry implements ApplicationComponent {
     @Override
     public void initComponent() {
         System.out.println(this + "initComponent()");
-        System.out.println(this + " port = " + toolConfiguration.getPort());
+        System.out.println(this + " " + ToolConfiguration.printOut(toolConfiguration));
 
-        toolConfiguration.setPort(10086);
+        if (toolConfiguration.getPort() <= 0) {
+
+            toolConfiguration.setPort(10086);
+            toolConfiguration.setUserName("Tom123");
+        }
 
     }
 

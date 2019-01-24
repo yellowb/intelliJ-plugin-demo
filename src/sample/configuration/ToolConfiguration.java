@@ -15,8 +15,11 @@ import org.jetbrains.annotations.Nullable;
 )
 public class ToolConfiguration implements PersistentStateComponent<ToolConfiguration> {
 
-    @Tag("Port")
-    public int port;
+    @Tag("port")
+    private int port;
+
+    @Tag("userName")
+    private String userName;
 
     public int getPort() {
         return port;
@@ -24,6 +27,14 @@ public class ToolConfiguration implements PersistentStateComponent<ToolConfigura
 
     public void setPort(int port) {
         this.port = port;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     @Nullable
@@ -34,18 +45,26 @@ public class ToolConfiguration implements PersistentStateComponent<ToolConfigura
 
     @Override
     public void loadState(@NotNull ToolConfiguration state) {
-        System.out.println(this + "loadState");
-        System.out.println(this + " income state port = " + state.getPort());
+        System.out.println(this + " loadState");
+        System.out.println(this + " income state " + printOut(state));
 
         XmlSerializerUtil.copyBean(state, this);
         if (this.port <= 0) {
             this.port = 10086;
         }
-        System.out.println(this + " this state port = " + this.port);
+        if (this.userName == null || this.userName.length() == 0) {
+            this.userName = "Tom123";
+        }
+
+        System.out.println(this + " this state " + printOut(this));
     }
 
     @Override
     public String toString() {
         return "[ToolConfiguration]";
+    }
+
+    public static String printOut(ToolConfiguration toolConfiguration) {
+        return "port = " + toolConfiguration.getPort() + " , userName = " + toolConfiguration.getUserName();
     }
 }

@@ -31,6 +31,10 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
     <applicationService serviceImplementation="sample.configuration.ToolConfiguration"></applicationService>
+
+    <applicationConfigurable id="SampleToolConfiguration" displayName="SampleTool"
+                             instance="sample.configuration.ui.ToolConfigurationForm" groupId="tools"/>
+
   </extensions>
 
   <actions>
