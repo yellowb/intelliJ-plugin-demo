@@ -1,4 +1,4 @@
-package sample;
+package sample.actions;
 
 import com.intellij.codeInsight.hint.HintManager;
 import com.intellij.openapi.actionSystem.AnAction;
