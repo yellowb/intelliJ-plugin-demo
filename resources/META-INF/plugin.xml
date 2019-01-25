@@ -32,6 +32,7 @@
     <!-- Add your extensions here -->
     <applicationService serviceImplementation="sample.configuration.ToolConfiguration"></applicationService>
     <applicationService serviceImplementation="sample.toolWindow.SubscribedServerList"></applicationService>
+    <applicationService serviceImplementation="sample.toolWindow.BroadcastingServer"></applicationService>
 
     <applicationConfigurable id="SampleToolConfiguration" displayName="SampleTool"
                              instance="sample.configuration.ui.ToolConfigurationForm" groupId="tools"/>
