@@ -37,11 +37,15 @@
     <applicationConfigurable id="SampleToolConfiguration" displayName="SampleTool"
                              instance="sample.configuration.ui.ToolConfigurationForm" groupId="tools"/>
 
+    <toolWindow id="Sample Tool" anchor="right" icon="/icons/toolwindow.png"
+                factoryClass="sample.toolWindow.ui.ToolWindowFactory"/>
+
   </extensions>
 
   <actions>
     <!-- Add your actions here -->
     <action id="hello.action" class="HelloAction" text="hello_action">
+
       <add-to-group group-id="GenerateGroup" anchor="first"/>
     </action>
     <action id="EditorBasics.EditorIllustration" class="sample.actions.EditorIllustration" text="Editor Basics"
