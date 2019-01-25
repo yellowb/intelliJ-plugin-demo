@@ -2,6 +2,8 @@ package sample.toolWindow;
 
 import com.intellij.util.xmlb.annotations.Tag;
 
+import java.util.Objects;
+
 public class SubscribedServerItem {
 
     @Tag("serverUserName")
@@ -13,15 +15,19 @@ public class SubscribedServerItem {
     @Tag("serverPort")
     private int serverPort;
 
+    @Tag("password")
+    private String password;
+
     // Default constructor to make sure work with persistence framework
     public SubscribedServerItem() {
-        this("", "", 0);
+        this("", "", 0, "");
     }
 
-    public SubscribedServerItem(String serverUserName, String serverAddress, int serverPort) {
+    public SubscribedServerItem(String serverUserName, String serverAddress, int serverPort, String password) {
         this.serverUserName = serverUserName;
         this.serverAddress = serverAddress;
         this.serverPort = serverPort;
+        this.password = password;
     }
 
     public String getServerUserName() {
@@ -46,5 +52,38 @@ public class SubscribedServerItem {
 
     public void setServerPort(int serverPort) {
         this.serverPort = serverPort;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SubscribedServerItem that = (SubscribedServerItem) o;
+        return serverPort == that.serverPort &&
+                Objects.equals(serverAddress, that.serverAddress);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(serverAddress, serverPort);
+    }
+
+    @Override
+    public String toString() {
+        return "SubscribedServerItem{" +
+                "serverUserName='" + serverUserName + '\'' +
+                ", serverAddress='" + serverAddress + '\'' +
+                ", serverPort=" + serverPort +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
