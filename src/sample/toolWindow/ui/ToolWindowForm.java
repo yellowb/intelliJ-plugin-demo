@@ -14,4 +14,12 @@ public class ToolWindowForm {
     public JPanel getMainPanel() {
         return this.mainPanel;
     }
+
+    public ToolWindowForm() {
+        this.subscribeBtn.addActionListener(e -> subscribeNewServer());
+    }
+
+    private void subscribeNewServer() {
+        System.out.println("subscribeNewServer");
+    }
 }
