@@ -1,5 +1,7 @@
 package sample.toolWindow.ui;
 
+import com.intellij.openapi.ui.Messages;
+
 import javax.swing.*;
 
 public class ToolWindowForm {
@@ -16,10 +18,16 @@ public class ToolWindowForm {
     }
 
     public ToolWindowForm() {
+        this.subscribedServerJList = new SubscribedServerUiList();
         this.subscribeBtn.addActionListener(e -> subscribeNewServer());
     }
 
+    /**
+     * User input a new server's address and port
+     */
     private void subscribeNewServer() {
-        System.out.println("subscribeNewServer");
+        String input = Messages.showInputDialog("Input server's address and port, e.g. 192.168.1.2:9999", "Subscribe New Server", null);
+        System.out.println(input);
     }
+
 }
