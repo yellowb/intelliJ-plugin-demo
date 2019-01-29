@@ -18,7 +18,7 @@ public class ToolWindowForm {
     }
 
     public ToolWindowForm() {
-        this.subscribedServerJList = new SubscribedServerUiList();
+//        this.subscribedServerJList = new SubscribedServerUiList();
         this.subscribeBtn.addActionListener(e -> subscribeNewServer());
     }
 
@@ -30,4 +30,8 @@ public class ToolWindowForm {
         System.out.println(input);
     }
 
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+        this.subscribedServerJList = new SubscribedServerUiList();
+    }
 }

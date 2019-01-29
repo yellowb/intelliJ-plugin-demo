@@ -8,9 +8,12 @@ import sample.toolWindow.SubscribedServerList;
 
 import javax.swing.*;
 import java.awt.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.EventListener;
 import java.util.List;
 
-public class SubscribedServerUiList extends JBList<SubscribedServerItem> {
+public class SubscribedServerUiList extends JBList<SubscribedServerItem> implements PropertyChangeListener, EventListener {
 
     private final SubscribedServerList subscribedServerList = ServiceManager.getService(SubscribedServerList.class);
     private final DefaultListModel<SubscribedServerItem> model = new DefaultListModel<>();
@@ -35,7 +38,13 @@ public class SubscribedServerUiList extends JBList<SubscribedServerItem> {
         List<SubscribedServerItem> allServers = subscribedServerList.getAllServers();
         for (SubscribedServerItem server : allServers) {
             this.model.addElement(server);
+            System.out.println(server);
         }
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        this.syncModel();
     }
 
     static class SubscribedServerUiCellRenderer extends JLabel implements ListCellRenderer<SubscribedServerItem> {
@@ -43,7 +52,7 @@ public class SubscribedServerUiList extends JBList<SubscribedServerItem> {
         @Override
         public Component getListCellRendererComponent(JList<? extends SubscribedServerItem> list, SubscribedServerItem value, int index, boolean isSelected, boolean cellHasFocus) {
             final Color foreground = list.getForeground();
-            final String message = value.getServerAddress() + ":" + value.getServerPort();
+            final String message = "<html?" + value.getServerAddress() + "_" + value.getServerPort() + "</html>";
             this.setText(message);
             this.setForeground(foreground);
             this.setBorder(JBUI.Borders.empty(2, 10));

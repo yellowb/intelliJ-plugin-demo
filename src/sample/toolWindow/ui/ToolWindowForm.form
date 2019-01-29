@@ -20,7 +20,7 @@
         <properties/>
         <border type="etched" title="Your subscribed servers" title-justification="2"/>
         <children>
-          <component id="1327a" class="javax.swing.JList" binding="subscribedServerJList">
+          <component id="1327a" class="javax.swing.JList" binding="subscribedServerJList" custom-create="true">
             <constraints/>
             <properties>
               <selectionMode value="0"/>
