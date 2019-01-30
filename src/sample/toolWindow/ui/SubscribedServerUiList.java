@@ -52,7 +52,7 @@ public class SubscribedServerUiList extends JBList<SubscribedServerItem> impleme
         @Override
         public Component getListCellRendererComponent(JList<? extends SubscribedServerItem> list, SubscribedServerItem value, int index, boolean isSelected, boolean cellHasFocus) {
             final Color foreground = list.getForeground();
-            final String message = "<html?" + value.getServerAddress() + "_" + value.getServerPort() + "</html>";
+            final String message = "<html>" + value.getServerAddress() + ":" + value.getServerPort() + "</html>";
             this.setText(message);
             this.setForeground(foreground);
             this.setBorder(JBUI.Borders.empty(2, 10));
