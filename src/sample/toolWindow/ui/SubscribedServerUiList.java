@@ -37,7 +37,7 @@ public class SubscribedServerUiList extends JBList<SubscribedServerItem> impleme
     /**
      * Sync the data to UI
      */
-    private void syncModel() {
+    public void syncModel() {
         this.model.removeAllElements();
         List<SubscribedServerItem> allServers = subscribedServerList.getAllServers();
         for (SubscribedServerItem server : allServers) {
@@ -56,18 +56,14 @@ public class SubscribedServerUiList extends JBList<SubscribedServerItem> impleme
         @Override
         public Component getListCellRendererComponent(JList<? extends SubscribedServerItem> list, SubscribedServerItem value, int index, boolean isSelected, boolean cellHasFocus) {
             final Color foreground = list.getForeground();
-            final Color background = list.getBackground();
-            String message = "";
+            String message;
             this.setForeground(foreground);
             this.setBorder(JBUI.Borders.empty(2, 10));
 
             if (isSelected) {
-                message = "<html> # " + value.getServerAddress() + ":" + value.getServerPort() + "</html>";
-                setBackground(JBColor.ORANGE);
+                message = "<html><p style=\"background-color:gray;\">" + value.getServerAddress() + ":" + value.getServerPort() + "</p></html>";
             } else {
                 message = "<html>" + value.getServerAddress() + ":" + value.getServerPort() + "</html>";
-
-                setBackground(background);
             }
             this.setText(message);
 
