@@ -3,6 +3,7 @@ package sample.toolWindow.ui;
 import com.intellij.ide.ui.EditorOptionsTopHitProvider;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.ui.Messages;
+import sample.toolWindow.SubscribedServerItem;
 import sample.toolWindow.SubscribedServerList;
 
 import javax.swing.*;
@@ -25,6 +26,7 @@ public class ToolWindowForm {
 
     public ToolWindowForm() {
         this.subscribeBtn.addActionListener(e -> subscribeNewServer());
+        this.unsubscribeBtn.addActionListener(e -> removeSubscribedServer());
     }
 
     /**
@@ -40,6 +42,14 @@ public class ToolWindowForm {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private void removeSubscribedServer() {
+        SubscribedServerItem selectedServer = ((SubscribedServerUiList) this.subscribedServerJList).getSelectedValue();
+        if(selectedServer != null) {
+            subscribedServerList.removeServer(selectedServer.getServerAddress(), selectedServer.getServerPort());
+            ((SubscribedServerUiList) this.subscribedServerJList).syncModel();
         }
     }
 
